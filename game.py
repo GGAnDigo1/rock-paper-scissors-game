@@ -1,47 +1,22 @@
 import random
-player_score = 0
-computer_score = 0
-choices = ["камень", "бумага", "ножницы"]
-print("Камень давит ножницы. Ножницы режут бумагу. Бумага накрывает камень.")
-player = input("Выберите: камень, бумага, или ножницы (выйти) ? ")
-while player != "выйти":
-    player = player.lower()
-    computer = random.choiсe(choices)
-    print("Твой выбор " +player+ ", компьютер выбрал " +computer+ ".")
-    if player == computer:
-        print("Ничья")
-    elif player =="камень":
-        if computer == "ножницы":
-            print("ты победил!")
-            player_score = player_score + 1
-        else:
-            print("Победил компьютер!")
-            computer_score = computer_score + 1
-        print ("Общий счёт: у вас ", player_score, "у компьютера ", computer_score, "счёт: у вас ", player_score, "у компьютера ", computer_score)
-    elif player == "бумага":
-        if computer == "камень":
-            print ("Ты победил!")
-            player_score = player_score + 1
-        else:
-            print("Победил компьютер!")
-            computer_score = computer_score + 1
-        print ("Общий счёт: у вас ", player_score, "у компьютера",computer_score)
-    elif player == "бумага":
-        if computer == "камень":
-            print ("Ты победил!")
-            player_score = player_score + 1
-        else:
-            print ("Победил компьютер!")
-            computer_score = computer_score + 1
-        print ("Общий счёт: у вас ", player_score, "у компьютера ", computer_score)
-    elif player == "ножницы":
-        if computer == "бумага":
-            print ("Ты победил!")
-            player_score = player_score + 1
-        else:
-            print ("Победил компьютер!")
-            computer_score = computer_score + 1
-        print ("Обший счёт: у вас", player_score, "у компьютера", computer_score)
+turns = ['rock', 'paper', 'scissors']
+
+while(True):
+    human_turn = input("Enter your turn, or type exit: ")
+    computer_turn = random.choice(turns)
+
+    if human_turn == 'exit':
+        print('Thank you for playing! Bye bye')
+        break
+
+    print(f'Human:{human_turn} vs. Computer:{computer_turn}')
+    if human_turn == computer_turn:
+        print('Draw!')
+    elif human_turn == 'rock' and computer_turn == 'scissors':
+        print('Human wins!')
+    elif human_turn == 'paper' and computer_turn == 'rock':
+        print('Human wins!')
+    elif human_turn == 'scissors' and computer_turn == 'paper':
+        print('Human wins!')
     else:
-        print ("По-моему, произошла ошибка...")
-        player = input ("Выберите: камень, бумага, или ножницы (выйти) ? " )
+        print('Computer wins!')
